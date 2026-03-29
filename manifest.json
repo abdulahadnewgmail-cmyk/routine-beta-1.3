@@ -1,15 +1,18 @@
 {
   "name": "সময় ও রুটিন",
   "short_name": "রুটিন",
-  "start_url": "index.html",
+  "description": "স্টুডেন্ট নির্মিত ক্লাস রুটিন এবং স্টাডি ট্র্যাকার অ্যাপ",
+  "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#007bff",
+  "orientation": "portrait",
+  "background_color": "#2c3e50",
+  "theme_color": "#2c3e50",
   "icons": [
     {
       "src": "https://cdn-icons-png.flaticon.com/512/2693/2693507.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
