@@ -1,4 +1,4 @@
-const cacheName = 'somoy-routine-v1.3';
+const cacheName = 'somoy-routine-v1.4';
 const assets = [
   './',
   './index.html',
