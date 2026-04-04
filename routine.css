@@ -1,3 +1,5 @@
+  *{user-select: none;}
+  
   main {
     display: flex;
     width: 100%;
@@ -9,7 +11,7 @@
   }
   
   .sidebar {
-    width: 70px;
+    width: 40px;
     background: #252C36;
     position: fixed;
     left: 0;
@@ -23,7 +25,7 @@
     margin-top: 20px;
     border-top-left-radius: 15px;
     box-shadow: 0 0 10px 1px inset;
-    margin-left: 70px;
+    margin-left: 40px;
     display: flex;
     flex-direction: column;
     height: 1000px;
@@ -245,7 +247,7 @@
     color: #FF007B;
   }
   .accountBtn{
-    
+    box-shadow: 5px 5px 5px .1px #0000004D;
     height: 60px;
     border: none;
     border-radius: 10px;
@@ -260,4 +262,9 @@
     background: none;
     color: crimson;
     font-size: 25px;
+  }
+  
+  .allreset{
+    background: #001868;
+    color: #f00;
     }
