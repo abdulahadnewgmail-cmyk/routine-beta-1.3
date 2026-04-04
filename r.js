@@ -1,12 +1,22 @@
+  // r.js এর শুরুতে
+  let routine;
+  let savedData = localStorage.getItem('savedRoutine');
   
+  if (savedData && savedData !== "undefined") {
+      routine = JSON.parse(savedData);
+  } else {
+      routine = SCIENCE;
+  }
+
+  greet()
   const hr = document.querySelector('hr');
   const routine_h1 = document.querySelector('.routine_h1');
   routine_h1.style.top = (hr.getBoundingClientRect().top - routine_h1.offsetHeight / 1.5) + 'px'
   const routine_subject = document.querySelectorAll('.routine_subject')
   const clock = document.querySelector('.clock')
-  routine = JSON.parse(localStorage.getItem('savedRoutine')) || prevRoutine;
+  routine = JSON.parse(localStorage.getItem('savedRoutine')) || SCIENCE;
   
-  let firstTime = localStorage.getItem('user')? false: true;
+  
   let subjectNowIndex;
   let currentHour;
   let currentMinute;
@@ -15,6 +25,12 @@
   let weekday;
   let time;
   
+  function resetApp() {
+    if(!confirm(' ⚠️⚠️ সমস্ত ডেটা মুছে যাবে ।  ⚠️⚠️')) return ;
+    if(!confirm(' তুমি কি সত্যিই সব রিসেট করতে চাও ?')) return ;
+    localStorage.clear()
+    location.reload()
+  }
   function updateClock() {
     let date = new Date()
     let hour = date.getHours()
@@ -90,7 +106,7 @@
           color: gold;
           -webkit-text-stroke:  1px #2D2D2D;
           font-size: 1.7rem;
-          fonth-weight: bolder
+          font-weight: bolder
         `
       }
   }
@@ -100,6 +116,7 @@
  } 
 
   function greet() {
+    let firstTime = localStorage.getItem('user')? false: true;
     if (!firstTime) return;
     
     const greeting = document.querySelector('.greeting');
@@ -119,6 +136,7 @@
     </P>
     <button class="createAccountBtn accountBtn" onclick="toLoginPage()"> অ্যাকাউন্ট তৈরি করতে এখানে চাপুন</button>  
     `
+    
   }
   
   function toLoginPage() {
@@ -174,21 +192,40 @@
       alert(' সকল শূন্যস্থান ভরাট করা বাধ্যতামূলক ')
       return;
     }
+    
     const userData = {
       'user': userName,
       'clg': clgName,
       'group': groupName,
-    }    
+    }
+    
     localStorage.setItem('user', JSON.stringify(userData))
     document.querySelector('.greeting').style.display = 'none'
     
     firstTime = false;
     user = userData
     document.querySelector('.uid').textContent = userName
-    alert('DONE. তবে মনে রাখতে হবে অ্যাপ টি এখনো খুবই ছোট । so, Dont underestimate')
+    alert('DONE !! \n তবে মনে রাখতে হবে অ্যাপ টি এখনো খুবই ছোট । so, Please Dont underestimate | \n  যেকোনো সমস্যায় ইমেইল করো abdul.ahad2222a@gmail.com');
+    setRoutineByGroup(groupName)
+    updateUserName()
+    updateSubList()
   }
   
-  // due to having less time to develop this part of the code generated with AI
+  
+  
+  function setRoutineByGroup() {
+    
+    const userGroup = JSON.parse(localStorage.getItem('user')).group
+    
+    if(userGroup === 'ARTS') routine = ARTS;
+    if(userGroup === 'COMMERCE') routine = COMMERCE;
+    if(userGroup === 'SCIENCE') routine = SCIENCE;
+    
+    localStorage.setItem('savedRoutine', JSON.stringify(routine));
+  }
+  
+  // due  to having  less  time to  develop
+  //this part of the code generated with AI
   function initReadingTracker() {
     const resetBtn = document.querySelector('.tik'); // Your renamed button
     const endBtn = document.querySelector('.end');
@@ -292,11 +329,10 @@
     updateUI();
 }
   
+  
   initReadingTracker();
-
-
-  greet()
   updateClock()
   updateSubList()
   scrollSubList()
   styleSubList()
+  updateUserName()
