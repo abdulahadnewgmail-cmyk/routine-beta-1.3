@@ -1,144 +1,108 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>সময় & রুটিন</title>
-  
-  <meta name="theme-color" content="#2c3e50"> <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="icon.png" type="image/png"> <link rel="stylesheet" href="header.css" type="text/css" media="all" />
-  <link rel="stylesheet" href="routine.css" type="text/css" media="all" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>রুটিন পরিবর্তন - সময় ও রুটিন</title>
+    <link rel="stylesheet" href="table.css">
+    <link rel="stylesheet" href="header.css">
+    <style>
+        /* সরাসরি এখানে কিছু ফিক্সড স্টাইল দিচ্ছি যাতে হেডারের নিচে গ্যাপ থাকে */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a; /* তোমার অ্যাপের ব্যাকগ্রাউন্ড কালার অনুযায়ী */
+        }
+        main {
+            margin-top: 100px; /* হেডারের উচ্চতা অনুযায়ী গ্যাপ */
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .p {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+        .tableContainer {
+            width: 100%;
+            overflow-x: auto; /* মোবাইল স্ক্রিনে টেবিল স্ক্রল করার জন্য */
+            margin-bottom: 30px;
+        }
+        .save_reset_routine {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            width: 100%;
+            padding-bottom: 50px;
+        }
+        button {
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .save_routine {
+            background-color: #2ecc71;
+            color: white;
+        }
+        .reset_routine {
+            background-color: #e74c3c;
+            color: white;
+        }
+    </style>
 </head>
-
-
 <body>
-  <div class="greeting">
-    
-    
-  </div>
-  <header>
-    <div class="menu" onclick='redirect("table.html")'>
 
-        &#9998
-
-    </div>
-    <div class="app_name">সময় & রুটিন</div>
-    
-    <div class="profile">
-      <div class="uid"></div>
-      <div class="profile_pic">
-      <p class="demo_profile_pic">
-        🧑🏻‍💼
-      </p>
-      </div>
-    </div>
-  </header>
- 
-  
-  <main>
-    <div class="sidebar"></div>
-    
-    <div class="content">
-      
-      
-
-      
-
-
-        <!--routine section-->
-      <div class="routine_section">
-        <div class="time_subject r1">
-          <div class="routine_time">09:10</div>
-          <div class="routine_subject"></div>
+    <header>  
+        <div class="menu">
+          <a href="index.html" style="text-decoration: none; color: white; font-size: 1.5rem;">
+            &#8656;
+          </a>
         </div>
-        <div class="time_subject r2">
-          <div class="routine_time">09:50</div>
-          <div class="routine_subject"></div>
+        <div class="app_name">রুটিন পরিবর্তন</div>
+        
+        <div class="profile">
+          <div class="uid">Abdul Ahad</div>
+          <div class="profile_pic">
+            <p class="demo_profile_pic">🧑🏻‍💼</p>
+          </div>
         </div>
-        <div class="time_subject r3">
-          <div class="routine_time">10:30</div>
-          <div class="routine_subject"></div>
-        </div>
-        <div class="time_subject r4">
-          <div class="routine_time">11:10</div>
-          <div class="routine_subject"></div>
-        </div>
-        <div class="time_subject r5">
-          <div class="routine_time">11:50</div>
-          <div class="routine_subject"></div>
-        </div>
-        <div class="time_subject r6">
-          <div class="routine_time">12:30</div>
-          <div class="routine_subject"></div>
-        </div>
-        <div class="time_subject r7">
-          <div class="routine_time">01:10</div>
-          <div class="routine_subject"></div>
-        </div>
-      </div>
+    </header>
 
-      <div class="clock">00 : 00 : 00
-        <sub>AM</sub>
-      </div> 
-      
-                <hr >
-      <h1 class="routine_h1">
-        সময়ের হিসাব
-      </h1>
-    </hr>
-      <div class="time_container">
-        <div class="today time">
-          <p class=" tt_text today_text">
-            today:
-          </p>
-          <p class="tt_time today_time">
-            00 hours 00 minutes 
-          </p>          
+    <main>
+        <p class="p">
+            রুটিন পরিবর্তন করতে সাবজেক্ট এর ঘরে আপনার কাঙ্খিত সাবজেক্টের নাম লিখে <br>
+            <strong>সেভ</strong> বাটনে ক্লিক করুন।
+        </p>
+        
+        <div class="tableContainer">
+            <table>
+                </table>
         </div>
-        <div class="total time">
-          <p class="total_text tt_text">
-            total:
-          </p> 
-          <p class="total_time tt_time">
-            00 hours 00 minutes 
-          </p>
+       
+        <div class="save_reset_routine">
+            <button class="reset_routine" onclick="resetRoutine()">Reset Routine</button>
+            <button class="save_routine" onclick="saveRoutine()">Save Changes</button>
         </div>
-      </div>
-      
-    <div class="starting_time">
-      <p class="starting_time_text">
-            শুরুর সময়:
-      </p>
-      <input value="Click" type="time" class="time_input" placeholder="সেট করুন">
-      <button class="tik">RESET</button>
-    </div>
+    </main>
 
-    <button class="end">পড়া শেষ</button> 
-    <button class="end allreset" onclick="resetApp()">
-      APP RESET
-    </button>
-
-
-    </div>
-    
-  
-  </main>
-    
-  
-  </main>
-  <script src="data_r.js"></script>
-  <script src="r.js"></script>
-  <script src="practice.js"></script>
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js');
-  }
-</script>
-
+    <script src="data_r.js"></script>
+    <script src="table.js"></script>
+    <script>
+      // Service Worker registration
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js')
+            .then(reg => console.log('SW Registered'))
+            .catch(err => console.log('SW Error: ', err));
+        });
+      }
+    </script>
 </body>
-
-</html>
-
+  </html>
+      
